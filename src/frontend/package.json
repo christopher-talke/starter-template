@@ -1,0 +1,33 @@
+{
+  "name": "starter-template-frontend",
+  "version": "1.0.0",
+  "description": "frontend using nextjs for starter-template",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christopher-talke/starter-template.git"
+  },
+  "keywords": [
+    "christopher",
+    "talke",
+    "starter",
+    "template"
+  ],
+  "author": "Christopher Talke <christopher.talke@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christopher-talke/starter-template/issues"
+  },
+  "homepage": "https://github.com/christopher-talke/starter-template#readme",
+  "dependencies": {
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.1"
+  }
+}
