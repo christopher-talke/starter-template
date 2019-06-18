@@ -1,15 +1,10 @@
 import App, { Container } from "next/app";
 import React from "react";
-import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/GlobalStyle";
+import { ApolloProvider } from "react-apollo-hooks";
+import withData from "./withData";
 
-const theme = {
-  colors: {
-    primary: "#000ff"
-  }
-};
-
-export default class MyApp extends App {
+class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
@@ -17,20 +12,24 @@ export default class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
+    pageProps.query = ctx.query;
     return { pageProps };
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, apollo } = this.props;
+
     return (
       <Container>
-        <ThemeProvider theme={theme}>
+        <ApolloProvider client={apollo}>
           <>
             <GlobalStyle />
             <Component {...pageProps} />
           </>
-        </ThemeProvider>
+        </ApolloProvider>
       </Container>
     );
   }
 }
+
+export default withData(MyApp);
